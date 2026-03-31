@@ -32,7 +32,7 @@ paket kedua). Jelaskan hubungan antara nomor port pada kedua paket tersebut!
 - Destination Port
 - Length
 - Checksum
-![S1](img_UDP/S1.png)
+- ![S1](img_UDP/S1.png)
 
 2. Panjang dari setiap field header UDP adalah **16 bit** atau **2 Byte**. Karena ada 4 field pada User Diagram Protocol, maka total panjang adalah **8 Byte**.
 
@@ -40,7 +40,7 @@ paket kedua). Jelaskan hubungan antara nomor port pada kedua paket tersebut!
 - Header tadi kan punya nilai **8** (Fix)
 - Sedangkan payload ada 51 (Dicek melalui wireshark)
 - 51 + 8 = 59
-![Bukti](img_UDP/S2.png)
+- ![Bukti](img_UDP/S2.png)
 
 4. Karena UDP mengikuti ukuran IPV4 yang 16 bits (65,535 bytes) maka maksimum dari udp adalah **65.507** karena harus dikurangi oleh IP Header (20 Bytes, minimum) dan Header UDP (8 Bytes). 65.535 - 20 - 8 = 65.507 .
 
