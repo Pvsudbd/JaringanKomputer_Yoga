@@ -47,7 +47,7 @@ paket kedua). Jelaskan hubungan antara nomor port pada kedua paket tersebut!
 5. Yang paling besar itu **65.535** karena source port punya range dari 0 - 65.535.
 
 6. Udp memiliki nomer protokol **17** dengan heksadesimal **0x11**
-![Bukti2](<Screenshot 2026-03-31 231949.png>)
+![Bukti2](img_UDP/S3.png)
 
 7. **Request** Source Port = 4336, Dest Port = 161
 - **Response** Source Port = 161, Dest Port = 4336
