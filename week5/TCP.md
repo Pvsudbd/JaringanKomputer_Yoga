@@ -1,5 +1,5 @@
 # Laporan Praktikum Jaringan Komputer (Week 4) 
-# DNS
+# TCP
 <br/>
 
 ## Nama : Yoga Perkasa Didik
