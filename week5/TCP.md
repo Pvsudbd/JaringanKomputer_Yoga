@@ -8,27 +8,27 @@
 
 ## Section Pertama
 ### Target = tcp- ethereal-trace-1 & Trace manual dari saya
-### 1. Berapa alamat IP dan nomor port TCP yang digunakan oleh komputer klien (sumber) untuk
+1. Berapa alamat IP dan nomor port TCP yang digunakan oleh komputer klien (sumber) untuk
 mentransfer file ke gaia.cs.umass.edu? Cara paling mudah menjawab pertanyaan ini adalah
 dengan memilih sebuah pesan HTTP dan meneliti detail paket TCP yang digunakan untuk
 membawa pesan HTTP tersebut.
-### 2. Apa alamat IP dari gaia.cs.umass.edu? Pada nomor port berapa ia mengirim dan menerima
+2. Apa alamat IP dari gaia.cs.umass.edu? Pada nomor port berapa ia mengirim dan menerima
 segmen TCP untuk koneksi ini?
 ### Jika Anda telah membuat trace Anda sendiri, jawab pertanyaan berikut:
-### 3. Berapa alamat IP dan nomor port TCP yang digunakan oleh komputer klien Anda (sumber)
+3. Berapa alamat IP dan nomor port TCP yang digunakan oleh komputer klien Anda (sumber)
 untuk mentransfer ke gaia.cs.umass.edu?
 
 ---
 ## Jawab
-### 1. Alamat IP dan Nomer port TCP dari sang pengirim 
+1. Alamat IP dan Nomer port TCP dari sang pengirim 
 IP = 192.168.1.102
 Port Number = 1161
 
-### 2. Alamat IP dari Umass untuk mengirim dan menerima
+2. Alamat IP dari Umass untuk mengirim dan menerima
 - IP = 128.119.245.12
 - Port Number = 80
 
-### 3. Alamat IP dan Port number saya
+3. Alamat IP dan Port number saya
 - IP = 192.16******
 - Port = 53955
 - ![Bukti IP](img_TCP/J1S1.png)
@@ -36,17 +36,17 @@ Port Number = 1161
 
 ---
 ## Section Kedua
-### 1. Berapa nomor urut segmen TCP SYN yang digunakan untuk memulai sambungan TCP antara
+1. Berapa nomor urut segmen TCP SYN yang digunakan untuk memulai sambungan TCP antara
 komputer klien dan gaia.cs.umass.edu? Apa yang dimiliki segmen tersebut sehingga
 teridentifikasi sebagai segmen SYN?
-### 2. Berapa nomor urut segmen SYNACK yang dikirim oleh gaia.cs.umass.edu ke komputer klien
+2. Berapa nomor urut segmen SYNACK yang dikirim oleh gaia.cs.umass.edu ke komputer klien
 sebagai balasan dari SYN? Berapa nilai dari field Acknowledgement pada segmen SYNACK?
 Bagaimana gaia.cs.umass.edu menentukan nilai tersebut? Apa yang dimiliki oleh segmen
 sehingga teridentifikasi sebagai segmen SYNACK?
-### 3. Berapa nomor urut segmen TCP yang berisi perintah HTTP POST? Perhatikan bahwa untuk
+3. Berapa nomor urut segmen TCP yang berisi perintah HTTP POST? Perhatikan bahwa untuk
 menemukan perintah POST, Anda harus menelusuri content field milik paket di bagian
 bawah jendela Wireshark, kemudian cari segmen yang berisi "POST" di bagian field DATAnya.
-### 4. Anggap segmen TCP yang berisi HTTP POST sebagai segmen pertama dalam koneksi TCP.
+4. Anggap segmen TCP yang berisi HTTP POST sebagai segmen pertama dalam koneksi TCP.
 Berapa nomor urut dari enam segmen pertama dalam TCP (termasuk segmen yang berisi
 HTTP POST)? Pada jam berapa setiap segmen dikirim? Kapan ACK untuk setiap segmen
 diterima? Dengan adanya perbedaan antara kapan setiap segmen TCP dikirim dan kapan
@@ -56,34 +56,34 @@ fitur yang memungkinkan Anda untuk memplot RTT untuk setiap segmen TCP yang diki
 Pilih segmen TCP yang dikirim dari klien ke server gaia.cs.umass.edu pada jendela
 "paket yang ditangkap". Kemudian pilih: Statistics->TCP Stream Graph- >Round Trip Time
 Graph).
-### 5. Berapa panjang setiap enam segmen TCP pertama?
-### 6. Berapa jumlah minimum ruang buffer tersedia yang disarankan kepada penerima dan
+5. Berapa panjang setiap enam segmen TCP pertama?
+6. Berapa jumlah minimum ruang buffer tersedia yang disarankan kepada penerima dan
 diterima untuk seluruh trace? Apakah kurangnya ruang buffer penerima pernah
 menghambat pengiriman?
-### 7. Apakah ada segmen yang ditransmisikan ulang dalam file trace? Apa yang anda periksa (di
+7. Apakah ada segmen yang ditransmisikan ulang dalam file trace? Apa yang anda periksa (di
 dalam file trace) untuk menjawab pertanyaan ini?
-### 8. Berapa banyak data yang biasanya diakui oleh penerima dalam ACK? Dapatkah anda
+8. Berapa banyak data yang biasanya diakui oleh penerima dalam ACK? Dapatkah anda
 mengidentifikasi kasus-kasus di mana penerima melakukan ACK untuk setiap segmen yang
 diterima?
-### 9. Berapa throughput (byte yang ditransfer per satuan waktu) untuk sambungan TCP?
+9. Berapa throughput (byte yang ditransfer per satuan waktu) untuk sambungan TCP?
 Jelaskan bagaimana Anda menghitung nilai ini.
 
 ## Jawab
-### 1. **Nomer Urut Segmen TCP SYN (CLIENT)**
+1. **Nomer Urut Segmen TCP SYN (CLIENT)**
 - Sequence Number = **0**
 - Segmen tersebut teridentifikasi sebagai SYN karena terdapat flag SYN heksadesimal 0x002. 
 
-### 2. **Nomer Urut Segmen TCP SYN (UMASS)**
+2. **Nomer Urut Segmen TCP SYN (UMASS)**
 - Sequence Number = **0**
 - Nilai field acknowledgement = **1**
 - Penentuan nilai dilakukan dengan cara menambah angka di sequence number dengan 1. 0 + 1 = 1.
 - Segmen memiliki gelar SYN-ACK karena memiliki acknowledgement = 1 dan SYN yang juga 1. Oleh karena itu flag meng-identifikasinya sebagai SYN-ACK.
 
-### 3. **Nomer Urut Segmen TCP SYN (POST)**
+3. **Nomer Urut Segmen TCP SYN (POST)**
 - Sequence Number = **164041**
 ![Seq Number](img_TCP/J3S2.png)
 
-### **4. A. Nomer Urut 6 Segmen TCP**
+**4. A. Nomer Urut 6 Segmen TCP**
 
 > 199- merupakan nomer urut segmen pada Wireshark!  
 > Jam segmen dikirim mungkin itu jam segmen ditangkap? berarti Time.
@@ -124,18 +124,41 @@ Jelaskan bagaimana Anda menghitung nilai ini.
 > RTT untuk keenam segmen adalah 0,1 Detik.
 ![Bukti RTT](img_TCP/J6S2.png)
 
-### 5. Panjang setiap enam segmen
-    - 
+5. Panjang setiap enam segmen
+- Segmen 199 **(HTTP POST)**: 104 bytes
+- Segmen 200: 60 bytes
+- Segmen 201: 60 bytes
+- Segmen 202: 60 bytes
+- Segmen 203: 784 bytes
+- Segmen 206: 54 bytes
+
+6. Minimum buffer dapat dilihat di nilai window paling kecil pada Trace. Sedangkan, kalau nilai window size = 0 maka kemunkinan menghambat akan sering muncul, namun kalau window size tidak pernah 0 maka kecil kemungkinan akan terhambat.
+
+7. **Tidak ada**
+- Masih belum menemukan ada segmen yang muncul lebih dari sekali pada file.
+
+8. Banyak data didapatkan penerima dilakukan dengan menjumlah ack packet lama dengan len paket baru. Untuk kasus yang muncul pada file ini ada pada nomer urut 199 dimana ia memberikan ACK pada nomer urut 202.
+
+9. Rumusnya simpel untuk mencari throughput
+- Throughput = total byte data yang dikirim / total waktu
+> total data dapat diambil dari len , sedankan total waktu didapat dari time segmen awal - time segmen penerima
+- Contoh:
+    - S1 time = 6.2 detik, len = 1000
+    - S2 time = 5.0 detik, len = 500
+    - Total data = 1000 + 500 = 1500
+    - total waktu = (6.2-5.0) = 1.2
+    - Throughput = 1500 / 1.2 = 1.250 byte/detik
+- Dapat dilakukan pengecekan melalui **Statistics -> TCP stream graph -> Throughput**
 
 ---
 
 ## Section ketiga
-### 1. Gunakan alat plotting Time-Sequence-Graph (Stevens) untuk melihat grafik nomor urut
+1. Gunakan alat plotting Time-Sequence-Graph (Stevens) untuk melihat grafik nomor urut
 berbanding waktu dari segmen yang dikirim oleh klien ke server gaia.cs.umass.edu.
 Dapatkah Anda mengidentifikasi di mana fase “slow start” TCP dimulai dan berakhir, dan
 pada bagian mana algoritma ”congestion avoidance” mengambil alih? Berikan komentar
 tentang bagaimana data yang diukur berbeda dari perilaku ideal TCP yang telah kita pelajari.
-### 2. Jawablah kedua pertanyaan di atas untuk trace yang Anda dapatkan ketika Anda
+2. Jawablah kedua pertanyaan di atas untuk trace yang Anda dapatkan ketika Anda
 mengirimkan file dari komputer ke gaia.cs.umass.edu.
 
 ## Jawab
@@ -143,7 +166,7 @@ mengirimkan file dari komputer ke gaia.cs.umass.edu.
 > Note : untuk melihat grafik yang dikirim oleh klien ke server gaia.cs.umass.edu.
 - ![Plot](img_TCP/J1S3.png)
 
-### 1. Fase **slow start** sendiri terjadi pada awal-awal graf dimulai karena TCP sedang melakukan pengecekan untuk mengetahui kapasitas jaringan, mulai dari bandwidth dan traffic jaringan. Dia juga dapat diidentifikasi dengan pergerakan yang lambat namun naik dengan sangat cepat.
+1. Fase **slow start** sendiri terjadi pada awal-awal graf dimulai karena TCP sedang melakukan pengecekan untuk mengetahui kapasitas jaringan, mulai dari bandwidth dan traffic jaringan. Dia juga dapat diidentifikasi dengan pergerakan yang lambat namun naik dengan sangat cepat.
 - ![Slow Start](img_TCP/J1S3%201.png)
 - Fase **Congestion Avoidance** biasanya terjadi setelah fase slow start dimana TCP sudah mengetahui kapasitas jaringan dan mulai untuk meningkatkan sequence number untuk mencegah kemacetan pada jaringan. Congestion dapat di identifikasi pada titik yang sudah saya tandai, dapat dilihat jika kenaikan sequence cenderung stabil dan tidak tergesa-gesa seperti slow start.
 - ![Congestion](img_TCP/J1S3%202.png)
@@ -152,5 +175,5 @@ mengirimkan file dari komputer ke gaia.cs.umass.edu.
 - ![plot 2](img_TCP/J2S3.png)
 
 
-### 2. Fase **slow start** terlihat pada titik yang saya beri. Spike yang terjadi sangat cepat dan berakhir stabil menandakan jika TCP sudah mengetahui kapasitas jaringan dan mulai masuk ke tahap **Congestion Avoidance**.
+2. Fase **slow start** terlihat pada titik yang saya beri. Spike yang terjadi sangat cepat dan berakhir stabil menandakan jika TCP sudah mengetahui kapasitas jaringan dan mulai masuk ke tahap **Congestion Avoidance**.
 - ![Slow Start 2](img_TCP/J2S3%201.png)
