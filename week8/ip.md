@@ -18,8 +18,8 @@ A. IPv4 Dasar
 - Nilai TTL 64 dapat disebabkan oleh TTL Exceeded atau TTL sudah habis sebelum sampai tujuan hingga router harus membuat paket baru dengan stok TTL yang baru.
 - Pesan `Destination Unreachable (port unreachable)` dari yang saya baca di forum, sama seperti model TCP `Connection Refused`, tapi karena UDP maka informasinya seperti yang tadi. Pesan itu aman kok selama website masih bisa dimasuki.
 
-> Mencari fragmentasi kiriman traceroute
-> Saya menggunakan nama file yang sama dengan di modul!!.
+> **Mencari fragmentasi kiriman traceroute**
+>, menggunakan nama file yang sama dengan di modul!!.
 
 - ![alt text](img/img2.png)
 - Dapat dilihat jika terdapat banyak sekali paket UDP yang dikirimkan menuju alamat tujuan dengan ukuran sekitar 2972 byte. Hal ini terjadi karena program traceroute mengirimkan beberapa probe untuk setiap nilai TTL yang berbeda. Setiap paket UDP tersebut merupakan datagram besar yang kemudian mengalami fragmentasi pada lapisan IP. Fragmentasi ini terlihat dari adanya beberapa bagian paket dengan nilai fragment offset yang berbeda serta informasi bahwa satu datagram dipecah menjadi beberapa fragment. Dengan demikian, banyaknya paket UDP yang terlihat bukan merupakan hasil fragmentasi langsung, melainkan banyaknya datagram yang dikirim, di mana masing-masing datagram tersebut kemudian dipecah menjadi beberapa fragment yang lebih kecil.
